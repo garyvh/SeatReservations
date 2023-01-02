@@ -1,5 +1,9 @@
 # SeatReservations
 
+Note I have two implementations, SeatReservations.java and
+SeatReservationsScale.java. SeatReservation.java is the main one
+while SeatReservationScale.java is an alternative implementation.
+
 > Assumptions:
   - This problem is only about a grid of 5 rows and 10 columns.
     - I used this infomation to make a simpler and faster algorithmn
