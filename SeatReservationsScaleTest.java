@@ -272,4 +272,16 @@ public class SeatReservationsScaleTest {
 
         assertEquals(3, SeatReservationsScale.getMaxFamilies(seats, aisles, test));
     }
+
+    @Test
+    void testGivenInterview() {
+        // 50 rows and 10 columns
+        boolean[][] seats = new boolean[50][10];
+        boolean[] aisles = new boolean[9];
+        aisles[2] = true; // an aisle between col C and D
+        aisles[6] = true; // an aisle between col G and H
+        String test = "1B 1E 3A 3D 2H 4C 4E 5E 6B 6E 7A 7D 8H 9C 9E 10E 11B 11E 13A 13D 12H 14C 14E 15E 16B 16E 17A 17D 18H 19C 19E 20E 21B 21E 23A 23D 22H 24C 24E 25E 26B 26E 27A 27D 28H 29C 29E 30E 35E 35F 34E 34F 33E 33F 32E 32F 31E 31F 40E 40F 39E 39F 38E 38F 37E 37F 36E 36F";
+
+        assertEquals(50, SeatReservationsScale.getMaxFamilies(seats, aisles, test));
+    }
 }

@@ -152,10 +152,22 @@ public class SeatReservationsScale {
         Space: O(1)
      */
     public static void seatReserved(boolean[][] seats, String input) {
-        for (int i = 0; i < input.length(); i += 3) {
-            int rowNumber = Character.getNumericValue(input.charAt(i));
-            int col = LETTER_TO_INDEX.get(input.charAt(i + 1));
-            seats[rowNumber - 1][col] = true;
+
+        // No need to do this algo if string is empty
+        if (!input.equals("")) {
+            String[] takenSeats = input.split(" ");
+
+            for (int i = 0; i < takenSeats.length; i++) {
+                int findLetter = 0;
+                while (Character.isDigit(takenSeats[i].charAt(findLetter))) {
+                    findLetter++;
+                }
+                int rowNumber = Integer.parseInt(takenSeats[i].substring(0, findLetter));
+
+                // Here I assume that A col is indicated by a single char and it's A-Z without I.
+                int col = LETTER_TO_INDEX.get(takenSeats[i].charAt(findLetter));
+                seats[rowNumber - 1][col] = true;
+            }
         }
     }
 
